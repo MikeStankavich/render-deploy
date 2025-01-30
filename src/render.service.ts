@@ -30,8 +30,10 @@ export class RenderService {
    * @return {Promise<string>} - A string representing the ID of the deploy.
    */
   async triggerDeploy(options: DeployOptions): Promise<string> {
+    const commitId = process.env.GITHUB_SHA as string
     const response = await this.client.post('/deploys', {
       clearCache: options.clearCache ? 'clear' : 'do_not_clear'
+      commitId: options.currentCommit ? commitId : ''
     })
     return response.data.id as string
   }
@@ -64,6 +66,8 @@ export class RenderService {
 interface DeployOptions {
   /** Clear build cache. */
   clearCache?: boolean
+  /* deploy current commit rather than branch specified in render service */
+  currentCommit?: boolean
 }
 
 interface RenderOptions {

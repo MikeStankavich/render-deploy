@@ -15,6 +15,7 @@ export default class Action {
       const serviceId = core.getInput('service_id', {required: true})
       const apiKey = core.getInput('api_key', {required: true})
       const clearCache = core.getBooleanInput('clear_cache')
+      const currentCommit = core.getBooleanInput('current_commit')
       const waitDeploy = core.getBooleanInput('wait_deploy')
 
       const createGithubDeployment = core.getBooleanInput('github_deployment')
