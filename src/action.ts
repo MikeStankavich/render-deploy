@@ -28,7 +28,7 @@ export default class Action {
       const renderService = new RenderService({apiKey, serviceId})
       const githubService = new GitHubService({githubToken, owner, repo})
 
-      const deployId = await renderService.triggerDeploy({clearCache})
+      const deployId = await renderService.triggerDeploy({clearCache, currentCommit})
       let serviceUrl = ''
       let deploymentId = 0
 
