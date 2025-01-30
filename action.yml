@@ -12,6 +12,10 @@ inputs:
     required: false
     default: 'false'
     description: 'Clear build cache'
+  current_commit:
+    required: false
+    default: 'false'
+    description: 'Build current commit from action rather than branch configured in Render'
   wait_deploy:
     required: false
     default: 'false'
